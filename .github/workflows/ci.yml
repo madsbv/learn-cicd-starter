@@ -27,7 +27,7 @@ jobs:
       - name: Run statickcheck
         run: staticcheck ./...
 
-  tests:
+  security:
     name: Security
     runs-on: ubuntu-latest
 
