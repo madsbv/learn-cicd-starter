@@ -42,7 +42,7 @@ func TestGetAPIKeyFailMalformedAuthNoKey(t *testing.T) {
 func TestGetAPIKeyFailMalformedAuthWrongPrefix(t *testing.T) {
 	testcase := make(map[string][]string)
 	testcase["Authorization"] = []string{"Bearer key"}
-	want := "broken"
+	want := ""
 	got, goterr := GetAPIKey(testcase)
 
 	if want != got || goterr == nil {
