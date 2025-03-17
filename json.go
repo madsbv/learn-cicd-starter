@@ -30,12 +30,12 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 		return
 	}
 
+	// The Write method implicitly calls WriteHeader(http.StatusOK) if writeheader has not previously been called, so WriteHeader has to be moved up.
+	w.WriteHeader(code)
 	_, err = w.Write(dat)
 	if err != nil {
 		log.Printf("Error marshalling JSON: %s", err)
 		w.WriteHeader(500)
 		return
 	}
-
-	w.WriteHeader(code)
 }
